@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>축하합니다!</title>
+  <!-- Bootstrap CSS 추가 -->
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 72px;
+      margin-top: 20%;
+      animation: glow 2s infinite;
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px #ff0; }
+      50% { text-shadow: 0 0 20px #ff0; }
+      100% { text-shadow: 0 0 10px #ff0; }
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ff0;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      from { top: -10%; }
+      to { top: 110%; }
+    }
+  </style>
+</head>
+<body>
+  <h1>축하합니다!</h1>
+  <script>
+    // 화려한 애니메이션 추가 (컨페티)
+    const colors = ['#ff0', '#f0f', '#0ff', '#0f0', '#f00', '#00f'];
+    const numConfetti = 100;
+
+    for (let i = 0; i < numConfetti; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * 100 + '%';
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+      confetti.style.animationDelay = Math.random() * 5 + 's';
+      document.body.appendChild(confetti);
+    }
+  </script>
+</body>
+</html>
